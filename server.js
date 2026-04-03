@@ -13,7 +13,16 @@ connectDB();
 const app = express();
 
 // ── Middleware ──
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://catholic-online-store.vercel.app",
+    ],
+    credentials: true,
+  }),
+);
 app.use(express.json()); // lets us read JSON request bodies
 
 // ── Routes ──
